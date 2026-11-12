@@ -5,21 +5,29 @@ def garden_operations(operation_number: int) -> None:
         case 1:
             _ = 1 / 0
         case 2:
-            open("doesntexist.txt")
+            open("/non/existent/file")
         case 3:
             _ = "abc" + 2
         case _:
-            pass
+            print("Operation completed successfully")
 
 
-def test_temperature() -> None:
-    print("=== Garden Temperature Checker ===\n")
-    input_temperature("25")
-    input_temperature("abc")
-    input_temperature("100")
-    input_temperature("-50")
-    print("All tests completed - program didn't crash!")
+def test_error_types() -> None:
+    print("=== Garden Error Types Demo ===")
+    for i in range(5):
+        print(f"Testing operation {i}...")
+        try:
+            garden_operations(i)
+        except ValueError as e:
+            print(f"Caught ValueError: {e}")
+        except ZeroDivisionError as e:
+            print(f"Caught ZeroDivisionError: {e}")
+        except FileNotFoundError as e:
+            print(f"Caught FileNotFoundError: {e}")
+        except TypeError as e:
+            print(f"Caught TypeError: {e}")
+    print("\nAll error types tested successfully!")
 
 
 if __name__ == "__main__":
-    test_temperature()
+    test_error_types()
