@@ -14,7 +14,7 @@ def garden_operations(operation_number: int) -> None:
 
 def test_error_types() -> None:
     print("=== Garden Error Types Demo ===")
-    for i in range(5):
+    for i in (0, 1, 2, 3, 4):
         print(f"Testing operation {i}...")
         try:
             garden_operations(i)
